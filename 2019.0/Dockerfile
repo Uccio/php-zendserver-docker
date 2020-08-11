@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
       libmysqlclient20 \
       unzip \
       git \
-      zend-server-nginx=2019.0.4+b392 \
+      zend-server=2019.0.4+b392 \
     && rm -rf /var/lib/apt/lists/* \
     && /usr/local/zend/bin/zendctl.sh stop
 
@@ -47,7 +47,6 @@ COPY ./scripts /usr/local/bin
 #TODO: Integrate Zray docker plugin into Zend Server
 COPY ./Zray /usr/local/zend/var/plugins/
 
-RUN rm /var/www/html/index.nginx-debian.html
 COPY ./app /var/www/html
 
 EXPOSE 80
